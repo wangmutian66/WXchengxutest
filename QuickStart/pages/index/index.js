@@ -4,8 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    test:'wangmutian',
+    motto: '田哥欢迎你进来！！',
+    //test:'wangmutian',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -15,6 +15,39 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  othoer:function(){
+    wx.navigateTo({
+      url: '../demo/index'
+    })
+  },
+  nextPAGE:function(){
+   
+    wx.showModal({
+      title: "提示！",
+      content: '牧田哥哥叫你一边玩去',
+      confirmText: "去玩去",
+      cancelText: "取消",
+      success: (res) => {
+        if (res.confirm) {
+          // 跳转到实名认证页面
+          wx.navigateTo({
+            url: '../shimingrenzeng/index',
+            // url: '../login/index',
+          })
+        } else {
+          console.log("back")
+          wx.navigateBack({
+            delta: 1 // 回退前 delta(默认为1) 页面
+          })
+        }
+      }
+    });
+    /*
+    wx.navigateTo({
+      url: '../shimingrenzeng/index',
+      // url: '../login/index',
+    })*/
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -74,30 +107,11 @@ function wxlistarray(that){
       'content-type': 'application/json' // 默认值
     },
     success: function (res) {
-      wx.showModal({
-        title: "提示！",
-        content: '您还没有实名认证',
-        confirmText: "去认证",
-        cancelText: "取消",
-        success: (res) => {
-          if (res.confirm) {
-            // 跳转到实名认证页面
-            wx.navigateTo({
-              url: '../shimingrenzeng/index',
-              // url: '../login/index',
-            })
-          } else {
-            console.log("back")
-            wx.navigateBack({
-              delta: 1 // 回退前 delta(默认为1) 页面
-            })
-          }
-        }
-      });
+      
 
       app.globalData.test="123456";
       that.setData({
-        test:"123456wang"
+        //test:"123456wang"
         
       });
       

@@ -10,3 +10,12 @@
             </block>
         </radio-group>
     </view>
+    
+    <block wx:for="{{result}}" wx:key="{{item}}">
+                <view class="grid">
+                    <!-- <image src="http://{{item.chapterImg}}" background-size="cover"></image> -->
+                    {{item.chaptreName}}
+                     {{item.createTime}}
+                      {{item.durationMsec}}
+                </view>
+            </block>

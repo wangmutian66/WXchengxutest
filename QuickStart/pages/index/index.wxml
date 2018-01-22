@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class='body'>
+<image class='bgtp' src='../demo/image/02.jpg'></image>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -10,8 +12,10 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <view>123123</view>
-  <view>-------{{test}}--</view>
+
+
   
 </view>
-<map longitude="广州经度" latitude="广州纬度"></map>
+<button class='btnclss' bindtap="nextPAGE"> 点击进入下一页 </button>
+<button class='btnclss top30' bindtap="othoer"> 点击进入 </button>
+</view>

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    result:null,
     // 复选框的value，此处预定义，然后循环渲染到页面
     itemsValue: [
       {
@@ -38,7 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wxlistarray(this);
   },
 
   /**
@@ -90,3 +91,17 @@ Page({
   
   }
 })
+
+function wxlistarray(that) {
+  wx.request({
+    url: 'http://www.guaizhangmen.com/author.php/Nexts/listarray', //仅为示例，并非真实的接口地址
+    data: {},
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success: function (res) {
+      console.log(res["data"]["dataList"]["chapterList"]);
+      that.setData({ result:res["data"]["dataList"]["chapterList"] })
+    }
+  })
+}
