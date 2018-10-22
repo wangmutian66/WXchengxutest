@@ -1,0 +1,7 @@
+
+{{test}}
+<view id='wx'>
+  <view wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+  {{item.goods_name}} {{index}}、{{item.goods_name}}
+  </view>
+</view>
